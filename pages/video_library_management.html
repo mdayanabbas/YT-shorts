@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Library & Management - YouTube Shorts Generator</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fyoutubesh2879back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-surface border-b border-border shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-text-primary">Shorts Generator</h1>
+                        <p class="text-xs text-text-secondary">Create viral content</p>
+                    </div>
+                </div>
+
+                <!-- Navigation & User Menu -->
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-6">
+                        <a href="dashboard_home.html" class="text-text-secondary hover:text-text-primary transition-colors">Dashboard</a>
+                        <a href="video_generation_workspace.html" class="text-text-secondary hover:text-text-primary transition-colors">Generate</a>
+                        <a href="video_library_management.html" class="text-primary font-medium border-b-2 border-primary pb-1">Library</a>
+                        <a href="niche_research_trends.html" class="text-text-secondary hover:text-text-primary transition-colors">Trends</a>
+                    </nav>
+
+                    <!-- User Avatar & Settings -->
+                    <div class="flex items-center space-x-3">
+                        <button class="p-2 text-text-secondary hover:text-text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12h0z"/>
+                            </svg>
+                        </button>
+                        <a href="account_settings_preferences.html" class="w-8 h-8 bg-gradient-to-br from-accent to-accent-600 rounded-full flex items-center justify-center text-white text-sm font-medium hover:scale-105 transition-transform">
+                            JD
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-surface border-t border-border">
+            <div class="px-4 py-3 space-y-3">
+                <a href="dashboard_home.html" class="block text-text-secondary">Dashboard</a>
+                <a href="video_generation_workspace.html" class="block text-text-secondary">Generate Videos</a>
+                <a href="video_library_management.html" class="block text-primary font-medium">Video Library</a>
+                <a href="niche_research_trends.html" class="block text-text-secondary">Trends & Research</a>
+                <a href="account_settings_preferences.html" class="block text-text-secondary">Account Settings</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Page Header with Stats -->
+        <div class="mb-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-text-primary mb-2">Video Library</h2>
+                    <p class="text-text-secondary">Manage and organize your generated YouTube Shorts</p>
+                </div>
+                <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+                    <button id="bulk-select-btn" class="btn-secondary text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Bulk Select
+                    </button>
+                    <button id="filter-toggle-btn" class="btn-primary text-sm lg:hidden">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                        </svg>
+                        Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-primary mb-1">127</div>
+                    <div class="text-sm text-text-secondary">Total Videos</div>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-accent mb-1">2.4GB</div>
+                    <div class="text-sm text-text-secondary">Storage Used</div>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-success mb-1">8.4K</div>
+                    <div class="text-sm text-text-secondary">Total Views</div>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-warning mb-1">Horror</div>
+                    <div class="text-sm text-text-secondary">Top Niche</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Filter Sidebar -->
+            <div id="filter-sidebar" class="lg:w-64 lg:flex-shrink-0">
+                <!-- Mobile Filter Overlay -->
+                <div id="filter-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
+                
+                <!-- Filter Panel -->
+                <div id="filter-panel" class="fixed bottom-0 left-0 right-0 bg-surface rounded-t-xl p-6 transform translate-y-full transition-transform duration-300 z-50 lg:relative lg:translate-y-0 lg:bg-transparent lg:p-0 lg:rounded-none">
+                    <div class="lg:sticky lg:top-24">
+                        <!-- Mobile Filter Header -->
+                        <div class="flex items-center justify-between mb-6 lg:hidden">
+                            <h3 class="text-lg font-bold text-text-primary">Filters</h3>
+                            <button id="close-filter-btn" class="p-2 text-text-secondary hover:text-text-primary">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="card p-6 space-y-6">
+                            <!-- Search -->
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Search Videos</label>
+                                <div class="relative">
+                                    <input type="text" id="search-input" class="input-field pl-10" placeholder="Search by title, niche, or keywords..." />
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                                        <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Niche Filter -->
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-3">Niche Categories</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="niche-filter" value="all" checked />
+                                        <span class="ml-2 text-sm text-text-primary">All Categories</span>
+                                        <span class="ml-auto text-xs text-text-secondary">(127)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="niche-filter" value="horror" />
+                                        <span class="ml-2 text-sm text-text-primary">Horror Stories</span>
+                                        <span class="ml-auto text-xs text-text-secondary">(34)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="niche-filter" value="gaming" />
+                                        <span class="ml-2 text-sm text-text-primary">Gaming Tips</span>
+                                        <span class="ml-auto text-xs text-text-secondary">(28)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="niche-filter" value="comedy" />
+                                        <span class="ml-2 text-sm text-text-primary">Comedy Skits</span>
+                                        <span class="ml-auto text-xs text-text-secondary">(22)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="niche-filter" value="fitness" />
+                                        <span class="ml-2 text-sm text-text-primary">Fitness</span>
+                                        <span class="ml-auto text-xs text-text-secondary">(18)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="niche-filter" value="cooking" />
+                                        <span class="ml-2 text-sm text-text-primary">Cooking</span>
+                                        <span class="ml-auto text-xs text-text-secondary">(15)</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="niche-filter" value="lifestyle" />
+                                        <span class="ml-2 text-sm text-text-primary">Lifestyle</span>
+                                        <span class="ml-auto text-xs text-text-secondary">(10)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Duration Filter -->
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-3">Video Duration</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="duration" value="all" checked />
+                                        <span class="ml-2 text-sm text-text-primary">All Durations</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="duration" value="15-30" />
+                                        <span class="ml-2 text-sm text-text-primary">15-30 seconds</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="duration" value="30-45" />
+                                        <span class="ml-2 text-sm text-text-primary">30-45 seconds</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="duration" value="45-60" />
+                                        <span class="ml-2 text-sm text-text-primary">45-60 seconds</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Sort Options -->
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-3">Sort By</label>
+                                <select id="sort-select" class="input-field">
+                                    <option value="newest">Newest First</option>
+                                    <option value="oldest">Oldest First</option>
+                                    <option value="most-viewed">Most Viewed</option>
+                                    <option value="trending">Trending Score</option>
+                                    <option value="duration-asc">Duration (Short to Long)</option>
+                                    <option value="duration-desc">Duration (Long to Short)</option>
+                                </select>
+                            </div>
+
+                            <!-- Clear Filters -->
+                            <button id="clear-filters-btn" class="w-full btn-secondary text-sm">
+                                Clear All Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="flex-1">
+                <!-- Filter Chips (Mobile) -->
+                <div id="filter-chips" class="flex flex-wrap gap-2 mb-4 lg:hidden">
+                    <!-- Dynamic filter chips will be added here -->
+                </div>
+
+                <!-- Bulk Actions Bar (Hidden by default) -->
+                <div id="bulk-actions-bar" class="hidden bg-accent-50 border border-accent-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <span id="selected-count" class="text-sm font-medium text-accent-600">0 videos selected</span>
+                            <button id="select-all-btn" class="text-sm text-accent-600 hover:text-accent-700">Select All</button>
+                            <button id="deselect-all-btn" class="text-sm text-accent-600 hover:text-accent-700">Deselect All</button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button id="bulk-download-btn" class="btn-primary text-sm">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                Download
+                            </button>
+                            <button id="bulk-delete-btn" class="bg-error text-white px-3 py-2 rounded text-sm hover:bg-error-600 transition-colors">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                </svg>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Grid -->
+                <div id="video-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    <!-- Video Card 1 -->
+                    <div class="video-card group cursor-pointer" data-video-id="1" data-niche="horror" data-duration="32" data-views="1240">
+                        <div class="relative">
+                            <!-- Bulk Select Checkbox -->
+                            <div class="bulk-checkbox hidden absolute top-2 left-2 z-10">
+                                <input type="checkbox" class="video-checkbox w-4 h-4 text-accent bg-white border-2 border-white rounded focus:ring-accent" />
+                            </div>
+                            
+                            <div class="relative aspect-[9/16] bg-secondary-100 rounded-lg overflow-hidden mb-3">
+                                <!-- Video Element for Proper Playback -->
+                                <video class="w-full h-full object-cover video-preview" poster="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" preload="metadata" muted data-src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4">
+                                    <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
+                                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Horror story thumbnail" class="w-full h-full object-cover" onerror="this.src='https://images.pixabay.com/photo/2017/10/31/19/05/web-2904878_1280.jpg'; this.onerror=null;" />
+                                </video>
+                                
+                                <!-- Video Controls Overlay -->
+                                <div class="video-controls absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-200 flex items-center justify-center">
+                                    <div class="flex items-center space-x-4">
+                                        <button class="play-pause-btn w-12 h-12 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
+                                            <svg class="play-icon w-6 h-6 text-text-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                            <svg class="pause-icon w-6 h-6 text-text-primary hidden" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="mute-btn w-10 h-10 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
+                                            <svg class="volume-on w-5 h-5 text-text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                            </svg>
+                                            <svg class="volume-off w-5 h-5 text-text-primary hidden" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="absolute bottom-4 left-4 right-4">
+                                        <div class="video-progress-container">
+                                            <input type="range" class="video-progress w-full h-1 bg-white bg-opacity-30 rounded-lg appearance-none cursor-pointer" min="0" max="100" value="0" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Duration Badge -->
+                                <div class="absolute bottom-2 left-2">
+                                    <span class="px-2 py-1 bg-black bg-opacity-75 text-white text-xs rounded">0:32</span>
+                                </div>
+
+                                <!-- Niche Tag -->
+                                <div class="absolute top-2 right-2">
+                                    <span class="px-2 py-1 bg-primary text-white text-xs rounded-full">Horror</span>
+                                </div>
+
+                                <!-- Action Menu -->
+                                <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                    <div class="relative">
+                                        <button class="action-menu-btn w-8 h-8 bg-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all">
+                                            <svg class="w-4 h-4 text-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                            </svg>
+                                        </button>
+                                        <div class="action-menu hidden absolute right-0 mt-2 w-48 bg-surface rounded-lg shadow-lg border border-border z-20">
+                                            <button class="preview-btn w-full text-left px-4 py-2 text-sm text-text-primary hover:bg-secondary-50 rounded-t-lg">
+                                                <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                                </svg>
+                                                Preview
+                                            </button>
+                                            <button class="download-btn w-full text-left px-4 py-2 text-sm text-text-primary hover:bg-secondary-50" data-video-id="1" data-title="Scary Urban Legend: The Midnight Visitor" data-url="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4">
+                                                <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                </svg>
+                                                Download
+                                            </button>
+                                            <button class="share-btn w-full text-left px-4 py-2 text-sm text-text-primary hover:bg-secondary-50">
+                                                <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                                                </svg>
+                                                Share
+                                            </button>
+                                            <button class="delete-btn w-full text-left px-4 py-2 text-sm text-error hover:bg-error-50 rounded-b-lg">
+                                                <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+// ... rest of video cards similar updates ...
+
+                <!-- Video Preview Modal -->
+                <div id="preview-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+                    <div class="bg-surface rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-bold text-text-primary">Video Preview</h3>
+                                <button id="close-preview-btn" class="p-2 text-text-secondary hover:text-text-primary">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Enhanced Video Preview with Controls -->
+                            <div class="aspect-[9/16] bg-secondary-100 rounded-lg mb-4 overflow-hidden relative">
+                                <video id="modal-video" class="w-full h-full object-cover" controls preload="metadata" poster="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                                    <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
+                                    <div class="flex items-center justify-center h-full text-center">
+                                        <div>
+                                            <svg class="w-16 h-16 text-text-secondary mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                            <p class="text-text-secondary">Video preview unavailable</p>
+                                        </div>
+                                    </div>
+                                </video>
+                            </div>
+
+                            <!-- Video Info -->
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 id="preview-title" class="font-medium text-text-primary mb-2">Video Title</h4>
+                                    <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                        <span id="preview-duration">0:00</span>
+                                        <span id="preview-views">0 views</span>
+                                        <span id="preview-date">Date</span>
+                                    </div>
+                                </div>
+
+                                <!-- Enhanced Download Options -->
+                                <div>
+                                    <h5 class="font-medium text-text-primary mb-2">Download Options</h5>
+                                    <div class="space-y-2">
+                                        <button class="download-option-btn w-full text-left p-3 border border-border rounded-lg hover:bg-secondary-50 transition-colors" data-quality="1080p" data-format="mp4">
+                                            <div class="flex items-center justify-between">
+                                                <div>
+                                                    <div class="font-medium text-text-primary">MP4 (1080p)</div>
+                                                    <div class="text-sm text-text-secondary">High quality, 9:16 aspect ratio • ~25MB</div>
+                                                </div>
+                                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <button class="download-option-btn w-full text-left p-3 border border-border rounded-lg hover:bg-secondary-50 transition-colors" data-quality="720p" data-format="mp4">
+                                            <div class="flex items-center justify-between">
+                                                <div>
+                                                    <div class="font-medium text-text-primary">MP4 (720p)</div>
+                                                    <div class="text-sm text-text-secondary">Standard quality, smaller file size • ~12MB</div>
+                                                </div>
+                                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <button class="download-option-btn w-full text-left p-3 border border-border rounded-lg hover:bg-secondary-50 transition-colors" data-quality="480p" data-format="webm">
+                                            <div class="flex items-center justify-between">
+                                                <div>
+                                                    <div class="font-medium text-text-primary">WebM (480p)</div>
+                                                    <div class="text-sm text-text-secondary">Compressed format, fastest download • ~8MB</div>
+                                                </div>
+                                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Social Media Sharing -->
+                                <div>
+                                    <h5 class="font-medium text-text-primary mb-2">Share to Social Media</h5>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <button class="p-3 border border-border rounded-lg hover:bg-secondary-50 transition-colors text-center">
+                                            <div class="w-8 h-8 bg-primary rounded mx-auto mb-1 flex items-center justify-center">
+                                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="text-xs text-text-primary">YouTube</div>
+                                        </button>
+                                        <button class="p-3 border border-border rounded-lg hover:bg-secondary-50 transition-colors text-center">
+                                            <div class="w-8 h-8 bg-secondary-800 rounded mx-auto mb-1 flex items-center justify-center">
+                                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="text-xs text-text-primary">TikTok</div>
+                                        </button>
+                                        <button class="p-3 border border-border rounded-lg hover:bg-secondary-50 transition-colors text-center">
+                                            <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded mx-auto mb-1 flex items-center justify-center">
+                                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="text-xs text-text-primary">Instagram</div>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Generated Hashtags -->
+                                <div>
+                                    <h5 class="font-medium text-text-primary mb-2">Generated Hashtags</h5>
+                                    <div class="p-3 bg-secondary-50 rounded-lg">
+                                        <p id="preview-hashtags" class="text-sm text-text-secondary">#shorts #viral #trending #youtube #content</p>
+                                    </div>
+                                    <button id="copy-hashtags-btn" class="mt-2 text-sm text-accent hover:text-accent-600">Copy Hashtags</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Progress Modal -->
+                <div id="download-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+                    <div class="bg-surface rounded-lg p-6 max-w-md w-full">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-text-primary mb-2">Downloading Video</h3>
+                            <p id="download-status" class="text-text-secondary mb-4">Preparing download...</p>
+                            
+                            <!-- Progress Bar -->
+                            <div class="w-full bg-secondary-100 rounded-full h-3 mb-4">
+                                <div id="download-progress" class="bg-gradient-to-r from-primary to-accent h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm text-text-secondary mb-4">
+                                <span id="download-percentage">0%</span>
+                                <span id="download-speed">0 KB/s</span>
+                            </div>
+                            
+                            <button id="cancel-download-btn" class="btn-secondary text-sm">Cancel Download</button>
+                        </div>
+                    </div>
+                </div>
+
+    <script>
+        // Enhanced video functionality
+        class VideoManager {
+            constructor() {
+                this.videos = new Map();
+                this.currentlyPlaying = null;
+                this.initializeVideos();
+                this.setupEventListeners();
+            }
+
+            initializeVideos() {
+                document.querySelectorAll('.video-preview').forEach((video, index) => {
+                    const videoData = {
+                        element: video,
+                        id: index + 1,
+                        isPlaying: false,
+                        duration: 0,
+                        currentTime: 0
+                    };
+                    
+                    this.videos.set(video, videoData);
+                    
+                    // Load video metadata
+                    video.addEventListener('loadedmetadata', () => {
+                        videoData.duration = video.duration;
+                    });
+
+                    // Handle video events
+                    video.addEventListener('timeupdate', () => {
+                        videoData.currentTime = video.currentTime;
+                        this.updateVideoProgress(video);
+                    });
+
+                    video.addEventListener('ended', () => {
+                        this.pauseVideo(video);
+                    });
+                });
+            }
+
+            setupEventListeners() {
+                // Video overlay click handlers
+                document.querySelectorAll('.video-overlay').forEach(overlay => {
+                    overlay.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const video = overlay.parentElement.querySelector('.video-preview');
+                        this.toggleVideoPlayback(video);
+                    });
+                });
+
+                // Play/pause button handlers
+                document.querySelectorAll('.play-pause-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const video = btn.closest('.video-card').querySelector('.video-preview');
+                        this.toggleVideoPlayback(video);
+                    });
+                });
+
+                // Mute button handlers
+                document.querySelectorAll('.mute-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const video = btn.closest('.video-card').querySelector('.video-preview');
+                        this.toggleVideoMute(video);
+                    });
+                });
+
+                // Video progress handlers
+                document.querySelectorAll('.video-progress').forEach(progress => {
+                    progress.addEventListener('input', (e) => {
+                        const video = progress.closest('.video-card').querySelector('.video-preview');
+                        const videoData = this.videos.get(video);
+                        if (videoData) {
+                            video.currentTime = (progress.value / 100) * videoData.duration;
+                        }
+                    });
+                });
+            }
+
+            toggleVideoPlayback(video) {
+                const videoData = this.videos.get(video);
+                if (!videoData) return;
+
+                if (videoData.isPlaying) {
+                    this.pauseVideo(video);
+                } else {
+                    this.playVideo(video);
+                }
+            }
+
+            playVideo(video) {
+                // Pause any currently playing video
+                if (this.currentlyPlaying && this.currentlyPlaying !== video) {
+                    this.pauseVideo(this.currentlyPlaying);
+                }
+
+                const videoData = this.videos.get(video);
+                if (!videoData) return;
+
+                // Load video source if not already loaded
+                if (!video.src && video.dataset.src) {
+                    video.src = video.dataset.src;
+                }
+
+                video.play().then(() => {
+                    videoData.isPlaying = true;
+                    this.currentlyPlaying = video;
+                    this.updateVideoUI(video, true);
+                }).catch(err => {
+                    console.error('Error playing video:', err);
+                });
+            }
+
+            pauseVideo(video) {
+                const videoData = this.videos.get(video);
+                if (!videoData) return;
+
+                video.pause();
+                videoData.isPlaying = false;
+                if (this.currentlyPlaying === video) {
+                    this.currentlyPlaying = null;
+                }
+                this.updateVideoUI(video, false);
+            }
+
+            toggleVideoMute(video) {
+                video.muted = !video.muted;
+                this.updateMuteUI(video);
+            }
+
+            updateVideoUI(video, isPlaying) {
+                const card = video.closest('.video-card');
+                const overlay = card.querySelector('.video-overlay');
+                const controls = card.querySelector('.video-controls');
+                const playIcon = card.querySelector('.play-icon');
+                const pauseIcon = card.querySelector('.pause-icon');
+
+                if (isPlaying) {
+                    overlay.style.opacity = '0';
+                    controls.style.opacity = '1';
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                } else {
+                    overlay.style.opacity = '';
+                    controls.style.opacity = '0';
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                }
+            }
+
+            updateMuteUI(video) {
+                const card = video.closest('.video-card');
+                const volumeOn = card.querySelector('.volume-on');
+                const volumeOff = card.querySelector('.volume-off');
+
+                if (video.muted) {
+                    volumeOn.classList.add('hidden');
+                    volumeOff.classList.remove('hidden');
+                } else {
+                    volumeOn.classList.remove('hidden');
+                    volumeOff.classList.add('hidden');
+                }
+            }
+
+            updateVideoProgress(video) {
+                const card = video.closest('.video-card');
+                const progressBar = card.querySelector('.video-progress');
+                const videoData = this.videos.get(video);
+
+                if (progressBar && videoData && videoData.duration > 0) {
+                    const progress = (video.currentTime / videoData.duration) * 100;
+                    progressBar.value = progress;
+                }
+            }
+        }
+
+        // Enhanced download functionality
+        class DownloadManager {
+            constructor() {
+                this.setupDownloadHandlers();
+            }
+
+            setupDownloadHandlers() {
+                // Individual download buttons
+                document.querySelectorAll('.download-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const videoId = btn.dataset.videoId;
+                        const title = btn.dataset.title;
+                        const url = btn.dataset.url;
+                        this.downloadVideo({ id: videoId, title, url, quality: '1080p', format: 'mp4' });
+                    });
+                });
+
+                // Bulk download button
+                document.getElementById('bulk-download-btn')?.addEventListener('click', () => {
+                    this.bulkDownloadVideos();
+                });
+
+                // Download option buttons in modal
+                document.querySelectorAll('.download-option-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const quality = btn.dataset.quality;
+                        const format = btn.dataset.format;
+                        const modalVideo = document.getElementById('modal-video');
+                        const title = document.getElementById('preview-title').textContent;
+                        
+                        this.downloadVideo({
+                            id: 'modal-video',
+                            title,
+                            url: modalVideo.src,
+                            quality,
+                            format
+                        });
+                    });
+                });
+
+                // Cancel download
+                document.getElementById('cancel-download-btn')?.addEventListener('click', () => {
+                    this.cancelDownload();
+                });
+            }
+
+            async downloadVideo(videoInfo) {
+                this.showDownloadModal();
+                
+                try {
+                    // Simulate download progress
+                    await this.simulateDownload(videoInfo);
+                    
+                    // Attempt actual download
+                    this.triggerDownload(videoInfo);
+                    
+                } catch (error) {
+                    console.error('Download failed:', error);
+                    this.showDownloadError(error.message);
+                }
+            }
+
+            async simulateDownload(videoInfo) {
+                const modal = document.getElementById('download-modal');
+                const status = document.getElementById('download-status');
+                const progress = document.getElementById('download-progress');
+                const percentage = document.getElementById('download-percentage');
+                const speed = document.getElementById('download-speed');
+
+                status.textContent = `Downloading "${videoInfo.title}"...`;
+                
+                // Simulate download progress
+                for (let i = 0; i <= 100; i += Math.random() * 10) {
+                    if (i > 100) i = 100;
+                    
+                    progress.style.width = i + '%';
+                    percentage.textContent = Math.round(i) + '%';
+                    speed.textContent = (Math.random() * 1000 + 500).toFixed(0) + ' KB/s';
+                    
+                    await new Promise(resolve => setTimeout(resolve, Math.random() * 200 + 100));
+                    
+                    if (this.downloadCancelled) {
+                        this.downloadCancelled = false;
+                        throw new Error('Download cancelled by user');
+                    }
+                }
+
+                status.textContent = 'Download completed!';
+                setTimeout(() => {
+                    this.hideDownloadModal();
+                }, 1500);
+            }
+
+            triggerDownload(videoInfo) {
+                // Create download link
+                const link = document.createElement('a');
+                link.href = videoInfo.url;
+                link.download = `${videoInfo.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_${videoInfo.quality}.${videoInfo.format}`;
+                link.style.display = 'none';
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            bulkDownloadVideos() {
+                const checkedBoxes = document.querySelectorAll('.video-checkbox:checked');
+                
+                if (checkedBoxes.length === 0) {
+                    alert('Please select videos to download');
+                    return;
+                }
+
+                const downloadPromises = Array.from(checkedBoxes).map((checkbox, index) => {
+                    const card = checkbox.closest('.video-card');
+                    const downloadBtn = card.querySelector('.download-btn');
+                    
+                    return new Promise(resolve => {
+                        setTimeout(() => {
+                            const videoInfo = {
+                                id: downloadBtn.dataset.videoId,
+                                title: downloadBtn.dataset.title,
+                                url: downloadBtn.dataset.url,
+                                quality: '1080p',
+                                format: 'mp4'
+                            };
+                            this.triggerDownload(videoInfo);
+                            resolve();
+                        }, index * 1000); // Stagger downloads by 1 second
+                    });
+                });
+
+                Promise.all(downloadPromises).then(() => {
+                    alert(`Started downloading ${checkedBoxes.length} videos!`);
+                });
+            }
+
+            showDownloadModal() {
+                document.getElementById('download-modal').classList.remove('hidden');
+            }
+
+            hideDownloadModal() {
+                document.getElementById('download-modal').classList.add('hidden');
+                document.getElementById('download-progress').style.width = '0%';
+                document.getElementById('download-percentage').textContent = '0%';
+            }
+
+            cancelDownload() {
+                this.downloadCancelled = true;
+                this.hideDownloadModal();
+            }
+
+            showDownloadError(message) {
+                document.getElementById('download-status').textContent = `Error: ${message}`;
+                setTimeout(() => {
+                    this.hideDownloadModal();
+                }, 3000);
+            }
+        }
+
+        // Enhanced modal functionality
+        function openPreviewModal(videoData) {
+            const modal = document.getElementById('preview-modal');
+            const modalVideo = document.getElementById('modal-video');
+            
+            // Set video source
+            if (videoData.url) {
+                modalVideo.src = videoData.url;
+            }
+            
+            // Update modal content
+            document.getElementById('preview-title').textContent = videoData.title;
+            document.getElementById('preview-duration').textContent = videoData.duration;
+            document.getElementById('preview-views').textContent = videoData.views + ' views';
+            document.getElementById('preview-date').textContent = videoData.date;
+            document.getElementById('preview-hashtags').textContent = videoData.hashtags;
+            
+            modal.classList.remove('hidden');
+            
+            // Auto-play video in modal
+            modalVideo.play().catch(err => {
+                console.log('Auto-play prevented:', err);
+            });
+        }
+
+        function closePreviewModal() {
+            const modal = document.getElementById('preview-modal');
+            const modalVideo = document.getElementById('modal-video');
+            
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+            modal.classList.add('hidden');
+        }
+
+        // Copy hashtags functionality
+        document.getElementById('copy-hashtags-btn')?.addEventListener('click', function() {
+            const hashtags = document.getElementById('preview-hashtags').textContent;
+            navigator.clipboard.writeText(hashtags).then(() => {
+                this.textContent = 'Copied!';
+                setTimeout(() => {
+                    this.textContent = 'Copy Hashtags';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy hashtags:', err);
+                this.textContent = 'Copy failed';
+                setTimeout(() => {
+                    this.textContent = 'Copy Hashtags';
+                }, 2000);
+            });
+        });
+
+        // Initialize enhanced functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoManager = new VideoManager();
+            const downloadManager = new DownloadManager();
+            
+            // Update video card click handlers to use enhanced data
+            document.querySelectorAll('.video-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('.action-menu-btn') || 
+                        e.target.closest('.video-checkbox') || 
+                        e.target.closest('.video-overlay') ||
+                        e.target.closest('.video-controls')) {
+                        return;
+                    }
+                    
+                    const video = this.querySelector('.video-preview');
+                    const downloadBtn = this.querySelector('.download-btn');
+                    
+                    const videoData = {
+                        title: this.querySelector('p').textContent,
+                        duration: this.querySelector('.absolute.bottom-2 span').textContent,
+                        views: this.dataset.views,
+                        date: this.querySelector('.text-xs span').textContent,
+                        hashtags: '#shorts #viral #trending #youtube #content',
+                        url: video.dataset.src || video.src
+                    };
+                    
+                    openPreviewModal(videoData);
+                });
+            });
+
+            // Update preview button handlers
+            document.querySelectorAll('.preview-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const card = this.closest('.video-card');
+                    const video = card.querySelector('.video-preview');
+                    const downloadBtn = card.querySelector('.download-btn');
+                    
+                    const videoData = {
+                        title: card.querySelector('p').textContent,
+                        duration: card.querySelector('.absolute.bottom-2 span').textContent,
+                        views: card.dataset.views,
+                        date: card.querySelector('.text-xs span').textContent,
+                        hashtags: '#shorts #viral #trending #youtube #content',
+                        url: video.dataset.src || video.src
+                    };
+                    openPreviewModal(videoData);
+                });
+            });
+        });
+
+        // ... keep existing mobile menu, filter, search, and other functionality ...
+    </script>
+</div></div></div></div></div></main></body>
+</html>

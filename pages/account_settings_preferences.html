@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Settings & Preferences - YouTube Shorts Generator</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fyoutubesh2879back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-surface border-b border-border shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-text-primary">Shorts Generator</h1>
+                        <p class="text-xs text-text-secondary">Create viral content</p>
+                    </div>
+                </div>
+
+                <!-- Navigation & User Menu -->
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-6">
+                        <a href="dashboard_home.html" class="text-text-secondary hover:text-text-primary transition-colors">Dashboard</a>
+                        <a href="video_generation_workspace.html" class="text-text-secondary hover:text-text-primary transition-colors">Generate</a>
+                        <a href="video_library_management.html" class="text-text-secondary hover:text-text-primary transition-colors">Library</a>
+                        <a href="niche_research_trends.html" class="text-text-secondary hover:text-text-primary transition-colors">Trends</a>
+                    </nav>
+
+                    <!-- User Avatar & Settings -->
+                    <div class="flex items-center space-x-3">
+                        <button class="p-2 text-text-secondary hover:text-text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12h0z"/>
+                            </svg>
+                        </button>
+                        <a href="account_settings_preferences.html" class="w-8 h-8 bg-gradient-to-br from-accent to-accent-600 rounded-full flex items-center justify-center text-white text-sm font-medium hover:scale-105 transition-transform border-2 border-accent">
+                            JD
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-text-secondary hover:text-text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-surface border-t border-border">
+            <div class="px-4 py-3 space-y-3">
+                <a href="dashboard_home.html" class="block text-text-secondary">Dashboard</a>
+                <a href="video_generation_workspace.html" class="block text-text-secondary">Generate Videos</a>
+                <a href="video_library_management.html" class="block text-text-secondary">Video Library</a>
+                <a href="niche_research_trends.html" class="block text-text-secondary">Trends & Research</a>
+                <a href="account_settings_preferences.html" class="block text-primary font-medium">Account Settings</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex items-center space-x-3 mb-2">
+                <div class="w-8 h-8 bg-gradient-to-br from-accent to-accent-600 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-text-primary">Account Settings</h1>
+            </div>
+            <p class="text-text-secondary">Manage your profile, preferences, and account settings</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="mb-8">
+            <div class="border-b border-border">
+                <nav class="flex space-x-8 overflow-x-auto scrollbar-hide" id="tab-nav">
+                    <button class="tab-button active py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors" data-tab="profile">
+                        <span class="flex items-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                            <span>Profile</span>
+                        </span>
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors" data-tab="preferences">
+                        <span class="flex items-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"/>
+                            </svg>
+                            <span>Preferences</span>
+                        </span>
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors" data-tab="billing">
+                        <span class="flex items-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            </svg>
+                            <span>Billing</span>
+                        </span>
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors" data-tab="help">
+                        <span class="flex items-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Help</span>
+                        </span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="space-y-8">
+            <!-- Profile Tab -->
+            <div id="profile-tab" class="tab-content active">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Profile Information -->
+                    <div class="lg:col-span-2">
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Profile Information</h3>
+                            
+                            <!-- Avatar Upload -->
+                            <div class="flex items-center space-x-6 mb-8">
+                                <div class="relative">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-accent to-accent-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                        JD
+                                    </div>
+                                    <button class="absolute -bottom-1 -right-1 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-600 transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-text-primary">John Doe</h4>
+                                    <p class="text-text-secondary text-sm">Content Creator</p>
+                                    <button class="text-accent hover:text-accent-600 text-sm font-medium mt-1">
+                                        Change Avatar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Form Fields -->
+                            <form class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="first-name" class="block text-sm font-medium text-text-primary mb-2">
+                                            First Name
+                                        </label>
+                                        <input type="text" id="first-name" class="input-field" value="John" placeholder="Enter your first name" />
+                                    </div>
+                                    <div>
+                                        <label for="last-name" class="block text-sm font-medium text-text-primary mb-2">
+                                            Last Name
+                                        </label>
+                                        <input type="text" id="last-name" class="input-field" value="Doe" placeholder="Enter your last name" />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+                                        Email Address
+                                    </label>
+                                    <input type="email" id="email" class="input-field" value="john.doe@example.com" placeholder="Enter your email" />
+                                </div>
+
+                                <div>
+                                    <label for="bio" class="block text-sm font-medium text-text-primary mb-2">
+                                        Bio
+                                    </label>
+                                    <textarea id="bio" rows="4" class="input-field" placeholder="Tell us about yourself...">Passionate content creator specializing in viral YouTube Shorts. Love creating engaging stories and connecting with audiences worldwide.</textarea>
+                                </div>
+
+                                <div class="flex justify-end">
+                                    <button type="submit" class="btn-primary px-6">
+                                        Save Changes
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Account Statistics -->
+                    <div class="lg:col-span-1">
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Account Statistics</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-primary mb-1">127</div>
+                                    <div class="text-sm text-text-secondary">Videos Generated</div>
+                                </div>
+
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-accent mb-1">8.4K</div>
+                                    <div class="text-sm text-text-secondary">Total Views</div>
+                                </div>
+
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-success mb-1">94%</div>
+                                    <div class="text-sm text-text-secondary">Success Rate</div>
+                                </div>
+
+                                <div class="border-t border-border pt-4">
+                                    <div class="text-sm text-text-secondary mb-1">Member Since</div>
+                                    <div class="font-medium text-text-primary">January 15, 2024</div>
+                                </div>
+
+                                <div>
+                                    <div class="text-sm text-text-secondary mb-1">Last Active</div>
+                                    <div class="font-medium text-text-primary">2 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preferences Tab -->
+            <div id="preferences-tab" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Video Generation Preferences -->
+                    <div class="card p-6">
+                        <h3 class="text-lg font-bold text-text-primary mb-6">Video Generation Defaults</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label for="video-quality" class="block text-sm font-medium text-text-primary mb-2">
+                                    Default Video Quality
+                                </label>
+                                <select id="video-quality" class="input-field">
+                                    <option value="1080p">1080p (Recommended)</option>
+                                    <option value="720p">720p</option>
+                                    <option value="480p">480p</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="video-duration" class="block text-sm font-medium text-text-primary mb-2">
+                                    Default Duration Range
+                                </label>
+                                <select id="video-duration" class="input-field">
+                                    <option value="15-30">15-30 seconds</option>
+                                    <option value="30-45">30-45 seconds</option>
+                                    <option value="45-60">45-60 seconds</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-3">
+                                    Content Filtering
+                                </label>
+                                <div class="space-y-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded border-border text-primary focus:ring-accent" checked />
+                                        <span class="ml-2 text-sm text-text-primary">Family-friendly content only</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded border-border text-primary focus:ring-accent" />
+                                        <span class="ml-2 text-sm text-text-primary">Exclude violent content</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded border-border text-primary focus:ring-accent" checked />
+                                        <span class="ml-2 text-sm text-text-primary">Enable trending keywords</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-3">
+                                    API Source Priorities
+                                </label>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg">
+                                        <span class="text-sm font-medium">Images</span>
+                                        <select class="text-sm border-0 bg-transparent">
+                                            <option>Unsplash → Pexels → Pixabay</option>
+                                            <option>Pexels → Unsplash → Pixabay</option>
+                                            <option>Pixabay → Unsplash → Pexels</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg">
+                                        <span class="text-sm font-medium">Videos</span>
+                                        <select class="text-sm border-0 bg-transparent">
+                                            <option>Pexels → Pixabay</option>
+                                            <option>Pixabay → Pexels</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interface & Language Preferences -->
+                    <div class="space-y-6">
+                        <!-- Theme Settings -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Interface Settings</h3>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-3">
+                                        Theme
+                                    </label>
+                                    <div class="flex items-center space-x-4">
+                                        <button class="theme-option active flex items-center space-x-2 px-4 py-2 rounded-lg border-2 transition-colors" data-theme="light">
+                                            <div class="w-4 h-4 bg-white border border-border rounded"></div>
+                                            <span class="text-sm">Light</span>
+                                        </button>
+                                        <button class="theme-option flex items-center space-x-2 px-4 py-2 rounded-lg border-2 transition-colors" data-theme="dark">
+                                            <div class="w-4 h-4 bg-secondary-800 rounded"></div>
+                                            <span class="text-sm">Dark</span>
+                                        </button>
+                                        <button class="theme-option flex items-center space-x-2 px-4 py-2 rounded-lg border-2 transition-colors" data-theme="auto">
+                                            <div class="w-4 h-4 bg-gradient-to-r from-white to-secondary-800 rounded"></div>
+                                            <span class="text-sm">Auto</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="language" class="block text-sm font-medium text-text-primary mb-2">
+                                        Language
+                                    </label>
+                                    <select id="language" class="input-field">
+                                        <option value="en">English</option>
+                                        <option value="es">Español</option>
+                                        <option value="fr">Français</option>
+                                        <option value="de">Deutsch</option>
+                                        <option value="pt">Português</option>
+                                        <option value="hi">हिन्दी</option>
+                                        <option value="ja">日本語</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notification Settings -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Notifications</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-medium text-text-primary">Generation Complete</div>
+                                        <div class="text-sm text-text-secondary">Get notified when videos are ready</div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" checked />
+                                        <div class="w-11 h-6 bg-secondary-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent-100 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-medium text-text-primary">Trending Alerts</div>
+                                        <div class="text-sm text-text-secondary">New trending topics in your niches</div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" checked />
+                                        <div class="w-11 h-6 bg-secondary-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent-100 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-medium text-text-primary">Platform Updates</div>
+                                        <div class="text-sm text-text-secondary">New features and improvements</div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer" />
+                                        <div class="w-11 h-6 bg-secondary-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent-100 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Controls -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Privacy & Data</h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="data-retention" class="block text-sm font-medium text-text-primary mb-2">
+                                        Data Retention Period
+                                    </label>
+                                    <select id="data-retention" class="input-field">
+                                        <option value="30">30 days</option>
+                                        <option value="90" selected>90 days</option>
+                                        <option value="365">1 year</option>
+                                        <option value="forever">Keep forever</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded border-border text-primary focus:ring-accent" checked />
+                                        <span class="ml-2 text-sm text-text-primary">Allow analytics tracking</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded border-border text-primary focus:ring-accent" />
+                                        <span class="ml-2 text-sm text-text-primary">Share usage data for improvements</span>
+                                    </label>
+                                </div>
+
+                                <button class="w-full btn-secondary text-left">
+                                    <span class="flex items-center justify-between">
+                                        <span>Export My Data</span>
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Billing Tab -->
+            <div id="billing-tab" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Current Plan -->
+                    <div class="lg:col-span-2">
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Current Plan</h3>
+                            
+                            <div class="bg-gradient-to-br from-primary-50 to-accent-50 rounded-lg p-6 mb-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div>
+                                        <h4 class="text-xl font-bold text-text-primary">Free Plan</h4>
+                                        <p class="text-text-secondary">Perfect for getting started</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-2xl font-bold text-primary">$0</div>
+                                        <div class="text-sm text-text-secondary">per month</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2 mb-6">
+                                    <div class="flex items-center text-sm">
+                                        <svg class="w-4 h-4 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>100 videos per month</span>
+                                    </div>
+                                    <div class="flex items-center text-sm">
+                                        <svg class="w-4 h-4 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>5K API calls per month</span>
+                                    </div>
+                                    <div class="flex items-center text-sm">
+                                        <svg class="w-4 h-4 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Basic support</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Usage This Month -->
+                            <div class="space-y-4">
+                                <h4 class="font-semibold text-text-primary">Usage This Month</h4>
+                                
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="text-text-secondary">Videos Generated</span>
+                                        <span class="text-text-primary font-medium">47/100</span>
+                                    </div>
+                                    <div class="w-full bg-secondary-100 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full" style="width: 47%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between text-sm mb-2">
+                                        <span class="text-text-secondary">API Calls</span>
+                                        <span class="text-text-primary font-medium">1.2K/5K</span>
+                                    </div>
+                                    <div class="w-full bg-secondary-100 rounded-full h-2">
+                                        <div class="bg-accent h-2 rounded-full" style="width: 24%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upgrade Options -->
+                    <div class="lg:col-span-1">
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Upgrade Plan</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="border border-accent rounded-lg p-4 bg-accent-50">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="font-semibold text-text-primary">Pro Plan</h4>
+                                        <span class="text-xs bg-accent text-white px-2 py-1 rounded-full">Popular</span>
+                                    </div>
+                                    <div class="text-2xl font-bold text-accent mb-2">$19</div>
+                                    <div class="text-sm text-text-secondary mb-4">per month</div>
+                                    
+                                    <div class="space-y-1 text-sm mb-4">
+                                        <div class="flex items-center">
+                                            <svg class="w-3 h-3 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span>500 videos/month</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <svg class="w-3 h-3 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span>25K API calls</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <svg class="w-3 h-3 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span>Priority support</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="w-full btn-primary text-sm">
+                                        Upgrade Now
+                                    </button>
+                                </div>
+
+                                <div class="border border-border rounded-lg p-4">
+                                    <h4 class="font-semibold text-text-primary mb-2">Enterprise</h4>
+                                    <div class="text-2xl font-bold text-text-primary mb-2">$99</div>
+                                    <div class="text-sm text-text-secondary mb-4">per month</div>
+                                    
+                                    <div class="space-y-1 text-sm mb-4">
+                                        <div class="flex items-center">
+                                            <svg class="w-3 h-3 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span>Unlimited videos</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <svg class="w-3 h-3 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span>Unlimited API calls</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <svg class="w-3 h-3 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span>24/7 support</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="w-full btn-secondary text-sm">
+                                        Contact Sales
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Tab -->
+            <div id="help-tab" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- FAQ Section -->
+                    <div class="card p-6">
+                        <h3 class="text-lg font-bold text-text-primary mb-6">Frequently Asked Questions</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="faq-item border border-border rounded-lg">
+                                <button class="faq-question w-full text-left p-4 flex items-center justify-between hover:bg-secondary-50 transition-colors">
+                                    <span class="font-medium text-text-primary">How do I generate my first video?</span>
+                                    <svg class="w-5 h-5 text-text-secondary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </button>
+                                <div class="faq-answer hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">Simply enter your desired niche in the dashboard, select your preferences, and click "Generate 5 Videos". Our AI will create unique content based on trending topics in your chosen category.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg">
+                                <button class="faq-question w-full text-left p-4 flex items-center justify-between hover:bg-secondary-50 transition-colors">
+                                    <span class="font-medium text-text-primary">What video formats are supported?</span>
+                                    <svg class="w-5 h-5 text-text-secondary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </button>
+                                <div class="faq-answer hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">All videos are generated in 9:16 aspect ratio (vertical format) optimized for YouTube Shorts. You can download them in MP4 format with various quality options (480p, 720p, 1080p).</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg">
+                                <button class="faq-question w-full text-left p-4 flex items-center justify-between hover:bg-secondary-50 transition-colors">
+                                    <span class="font-medium text-text-primary">Can I customize the generated content?</span>
+                                    <svg class="w-5 h-5 text-text-secondary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </button>
+                                <div class="faq-answer hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">Yes! You can set default preferences for video quality, duration, content filtering, and API source priorities. Each generation can also be customized before processing.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg">
+                                <button class="faq-question w-full text-left p-4 flex items-center justify-between hover:bg-secondary-50 transition-colors">
+                                    <span class="font-medium text-text-primary">How many videos can I generate per month?</span>
+                                    <svg class="w-5 h-5 text-text-secondary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </button>
+                                <div class="faq-answer hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">Free plan includes 100 videos per month. Pro plan offers 500 videos, and Enterprise provides unlimited generation. Check the Billing tab for detailed plan comparisons.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Resources -->
+                    <div class="space-y-6">
+                        <!-- Contact Form -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Contact Support</h3>
+                            
+                            <form class="space-y-4">
+                                <div>
+                                    <label for="support-subject" class="block text-sm font-medium text-text-primary mb-2">
+                                        Subject
+                                    </label>
+                                    <select id="support-subject" class="input-field">
+                                        <option value>Select a topic</option>
+                                        <option value="technical">Technical Issue</option>
+                                        <option value="billing">Billing Question</option>
+                                        <option value="feature">Feature Request</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="support-message" class="block text-sm font-medium text-text-primary mb-2">
+                                        Message
+                                    </label>
+                                    <textarea id="support-message" rows="4" class="input-field" placeholder="Describe your issue or question..."></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full btn-primary">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Resources -->
+                        <div class="card p-6">
+                            <h3 class="text-lg font-bold text-text-primary mb-6">Resources</h3>
+                            
+                            <div class="space-y-3">
+                                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-secondary-50 transition-colors">
+                                    <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-text-primary">Video Tutorials</div>
+                                        <div class="text-sm text-text-secondary">Step-by-step guides</div>
+                                    </div>
+                                </a>
+
+                                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-secondary-50 transition-colors">
+                                    <div class="w-8 h-8 bg-accent-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-text-primary">Documentation</div>
+                                        <div class="text-sm text-text-secondary">Complete user guide</div>
+                                    </div>
+                                </a>
+
+                                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-secondary-50 transition-colors">
+                                    <div class="w-8 h-8 bg-warning-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-text-primary">Community Forum</div>
+                                        <div class="text-sm text-text-secondary">Connect with other creators</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Changes Button (Fixed at bottom on mobile) -->
+        <div class="fixed bottom-0 left-0 right-0 p-4 bg-surface border-t border-border md:hidden" id="mobile-save-bar">
+            <button class="w-full btn-primary py-3 font-semibold" id="save-changes-btn">
+                Save Changes
+            </button>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-surface rounded-lg p-6 m-4 max-w-sm w-full">
+            <div class="text-center">
+                <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Settings Saved!</h3>
+                <p class="text-text-secondary text-sm mb-4">Your preferences have been updated successfully.</p>
+                <button id="close-modal" class="btn-primary px-6">
+                    Got it
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unsaved Changes Warning Modal -->
+    <div id="unsaved-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-surface rounded-lg p-6 m-4 max-w-sm w-full">
+            <div class="text-center">
+                <div class="w-12 h-12 bg-warning-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-warning-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Unsaved Changes</h3>
+                <p class="text-text-secondary text-sm mb-4">You have unsaved changes. Do you want to save them before leaving?</p>
+                <div class="flex space-x-3">
+                    <button id="discard-changes" class="flex-1 btn-secondary">
+                        Discard
+                    </button>
+                    <button id="save-and-continue" class="flex-1 btn-primary">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active', 'border-primary', 'text-primary');
+                    btn.classList.add('border-transparent', 'text-text-secondary');
+                });
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active', 'border-primary', 'text-primary');
+                this.classList.remove('border-transparent', 'text-text-secondary');
+                document.getElementById(tabId + '-tab').classList.remove('hidden');
+                document.getElementById(tabId + '-tab').classList.add('active');
+            });
+        });
+
+        // Theme selection
+        const themeOptions = document.querySelectorAll('.theme-option');
+        themeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                themeOptions.forEach(opt => {
+                    opt.classList.remove('active', 'border-accent', 'bg-accent-50');
+                    opt.classList.add('border-border');
+                });
+                this.classList.add('active', 'border-accent', 'bg-accent-50');
+                this.classList.remove('border-border');
+            });
+        });
+
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = this.querySelector('svg');
+                
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    answer.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Form change detection
+        let hasUnsavedChanges = false;
+        const formInputs = document.querySelectorAll('input, select, textarea');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                hasUnsavedChanges = true;
+            });
+        });
+
+        // Save changes functionality
+        function saveChanges() {
+            // Simulate save process
+            document.getElementById('success-modal').classList.remove('hidden');
+            hasUnsavedChanges = false;
+        }
+
+        document.getElementById('save-changes-btn').addEventListener('click', saveChanges);
+
+        // Handle form submissions
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveChanges();
+            });
+        });
+
+        // Modal close functionality
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('success-modal').classList.add('hidden');
+        });
+
+        // Navigation warning for unsaved changes
+        window.addEventListener('beforeunload', function(e) {
+            if (hasUnsavedChanges) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+
+        // Handle navigation links with unsaved changes
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (hasUnsavedChanges && !this.href.includes('#')) {
+                    e.preventDefault();
+                    document.getElementById('unsaved-modal').classList.remove('hidden');
+                    
+                    document.getElementById('discard-changes').onclick = () => {
+                        hasUnsavedChanges = false;
+                        document.getElementById('unsaved-modal').classList.add('hidden');
+                        window.location.href = this.href;
+                    };
+                    
+                    document.getElementById('save-and-continue').onclick = () => {
+                        saveChanges();
+                        document.getElementById('unsaved-modal').classList.add('hidden');
+                        setTimeout(() => {
+                            window.location.href = this.href;
+                        }, 1000);
+                    };
+                }
+            });
+        });
+
+        // Show/hide mobile save bar based on scroll and active tab
+        let lastScrollTop = 0;
+        const mobileSaveBar = document.getElementById('mobile-save-bar');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                mobileSaveBar.style.transform = 'translateY(100%)';
+            } else {
+                // Scrolling up
+                mobileSaveBar.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Initialize first tab as active
+        document.querySelector('.tab-button[data-tab="profile"]').click();
+    </script>
+</body>
+</html>

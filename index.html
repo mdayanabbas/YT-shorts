@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Shorts Generator</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FAFAFA 0%, #F7FAFC 100%);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #FF0000 0%, #E53E3E 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(255, 0, 0, 0.2);
+        }
+        
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #E5E5E5;
+            border-top: 3px solid #00D4FF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+        
+        .loading-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 8px;
+        }
+        
+        .loading-subtext {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #718096;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fyoutubesh2879back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+</head>
+<body>
+    <div class="loading-container fade-in">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5v14l11-7z" fill="white"/>
+                </svg>
+            </div>
+            <div class="logo-text">YouTube Shorts Generator</div>
+        </div>
+        
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Initializing your creative workspace...</div>
+        <div class="loading-subtext">Setting up tools for viral content creation</div>
+    </div>
+
+    <script>
+        // Available pages for navigation
+        const pages = [
+            'dashboard_home.html',
+            'video_generation_workspace.html',
+            'video_library_management.html',
+            'niche_research_trends.html',
+            'account_settings_preferences.html'
+        ];
+        
+        // Function to redirect to a specific page
+        function redirectToPage(pageName) {
+            if (pages.includes(pageName)) {
+                window.location.href = `pages/${pageName}`;
+            } else {
+                console.error(`Page ${pageName} not found in available pages`);
+                // Default redirect to dashboard if page not found
+                window.location.href = 'pages/dashboard_home.html';
+            }
+        }
+        
+        // Function to get page from URL parameters or default to dashboard
+        function getTargetPage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetPage = urlParams.get('page');
+            
+            if (targetPage && pages.includes(targetPage)) {
+                return targetPage;
+            }
+            
+            // Default to dashboard home
+            return 'dashboard_home.html';
+        }
+        
+        // Initialize the application
+        function initializeApp() {
+            const targetPage = getTargetPage();
+            
+            // Add a slight delay for better user experience
+            setTimeout(() => {
+                redirectToPage(targetPage);
+            }, 1500);
+        }
+        
+        // Start the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeApp);
+        
+        // Handle any errors during initialization
+        window.addEventListener('error', function(e) {
+            console.error('Application initialization error:', e.error);
+            // Fallback to dashboard on error
+            setTimeout(() => {
+                redirectToPage('dashboard_home.html');
+            }, 2000);
+        });
+        
+        // Preload critical resources
+        function preloadResources() {
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.href = 'pages/dashboard_home.html';
+            document.head.appendChild(link);
+        }
+        
+        // Start preloading
+        preloadResources();
+    </script>
+</body>
+</html>
